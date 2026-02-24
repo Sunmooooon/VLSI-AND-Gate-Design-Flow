@@ -140,7 +140,7 @@ Open the gds file using KLayout
 klayout and_gate.gds
 ```
 > 📷 *The display below shows a successful KLayout*  
-> ![Successful KLayout](images/xshem-2.png)
+> ![Successful KLayout](image/klayout.jpeg)
 
 ### Option 2: Using Magic VLSI
 
