@@ -143,6 +143,16 @@ klayout and_gate.gds
 > ![Successful KLayout](image/klayout.jpeg)
 
 ### Option 2: Using Magic VLSI
+To view the layout, first navigate to mag file directory.
+```bash
+cd ~/OpenLane/designs/and_gate/runs/RUN_<timestamp>/results/final/mag
+```
+Open the gds file using KLayout
+```bash
+magic and_gate.mag
+```
+> 📷 *The display below shows a successful Magic VLSI*  
+> ![Successful Magic VLSI](image/Magic.jpeg)
 
 
 
