@@ -154,5 +154,23 @@ magic and_gate.mag
 > 📷 *The display below shows a successful Magic VLSI*  
 > ![Successful Magic VLSI](image/Magic.jpeg)
 
+When you first open the mag file, standard cells often appear as empty boxes or solid blocks. You can use these shortcuts to look inside:
+```bash
+Press "x" This will Expand the cell you have selected. It reveals the internal transistors, diffusion layers, and poly-silicon that were previously hidden inside the "box".
+```
+> 📷 *Expanded Visual of Magic VLSI*  
+> ![Expanded Visual of Magic VLSI](image/pressxMagic.jpeg)
+
+To locate the "AND" logic gate cell, navigate to 'Options' and `Cell Manager`.
+> ![Cell Manager](image/cellmanagerMagic.jpeg)
+
+Select `sky130_fd_sc_hd__and2._1_` and select `zoom`. 
+> ![sky130_fd_sc_hd__and2._1_ cell](image/cellsky.jpeg)
+
+</br> This process will immediately locate the specific gate and automatically adjust the camera to focus on the designated silicon area, allowing you to see the transistor structures without being distracted by the surrounding fillers.
+
+> 📷 *Isolated "AND" Gate Layout*  
+> ![Isolated "AND" Gate Layoutl of Magic VLSI](image/isolatedmagic.jpeg)
+
 
 
