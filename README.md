@@ -172,5 +172,56 @@ Select `sky130_fd_sc_hd__and2._1_` and select `zoom`.
 > 📷 *Isolated "AND" Gate Layout*  
 > ![Isolated "AND" Gate Layoutl of Magic VLSI](image/isolatedmagic.jpeg)
 
+## 1.5. Extracting .spice Model From Layout
+Post layout simulation provides a more accurate representation of the circuit performance compared to the initial schematic. This process accounts for the parasitic capacitance and resistance that are inherent in the physical silicon layers and metal interconnects.
+
+</br> To begin, we must extract the physical data from the Magic layout into a format that a simulator can understand. Inside the Magic console, we use the following commands:
+```bash
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+
+Make Test Bench File:
+```bash
+nano tb_and_gate.spice
+```
+
+Add the following script:
+```bash
+* Final Transistor Level Testbench
+
+* 1. Include the foundational transistor models
+.lib "/home/sunmoon/.ciel/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+
+* 2. Include the generated spice netlist
+.include "and_gate.spice"
+
+* 3. Power Supply configuration
+Vdd VPWR 0 1.8
+Vss VGND 0 0
+
+* 4. Input Signal definitions
+Va A VGND pulse(0 1.8 1n 1n 1n 20n 40n)
+Vb B VGND pulse(0 1.8 1n 1n 1n 40n 80n)
+
+* 5. Component Instantiation (Pin Order: A B VGND VPWR Vout)
+X1 A B VGND VPWR Vout and_gate
+
+.control
+  save all
+  tran 1n 160n
+  run
+  
+  * Plotting the input and output waveforms
+  plot v(A) v(B) v(Vout)
+.endc
+.end
+```
+
+Finally run the test bench:
+```bash
+ngspice tb_and_gate.spice
+```
 
 
