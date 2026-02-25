@@ -178,7 +178,7 @@ Post layout simulation provides a more accurate representation of the circuit pe
 </br> To begin, we must extract the physical data from the Magic layout into a format that a simulator can understand. Inside the Magic console, we use the following commands:
 ```bash
 extract all
-ext2spice cthresh 0 rthresh 0
+ext2spice
 ext2spice
 ```
 
